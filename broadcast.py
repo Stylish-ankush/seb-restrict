@@ -38,4 +38,4 @@ async def broadcast(event):
     try:
         await msg.edit(result)
     except:
-        await event.reply(result)￼Enter
+        await event.reply(result)
