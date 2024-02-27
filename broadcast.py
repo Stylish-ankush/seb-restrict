@@ -4,14 +4,14 @@ from .. import bot as Drone
 from database import DB
 
 from telethon import events, errors
-
+SUDOERS=2067727121
 
 @Drone.on(events.NewMessage(pattern=r"/broadcast\s*([\s\S]*)?"))
 async def broadcast(event):
     if not DB:
         await event.reply('Add Mongo Url First')
         return
-    if not (event.sender_id in env.SUDOERS):
+    if not (event.sender_id in SUDOERS):
         return
     text = event.pattern_match.group(1)
     reply = await event.get_reply_message()
