@@ -8,6 +8,7 @@ services:
       SESSION: $SESSION
       AUTH: $AUTH
       FORCESUB: $FORCESUB
+      MONGO_URL: $MONGO_URL
     ports:
       - 8080
     resources:
