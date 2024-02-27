@@ -1,4 +1,4 @@
-from main.__init__ import MONGO_URL
+from .. import MONGO_URL
 from logger import LOGGER
 from database.mongo import Mongo
 
