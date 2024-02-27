@@ -1,6 +1,6 @@
-from env import MONGO_URL
+from main.__init__ import MONGO_URL
 from logger import LOGGER
-from Hack.database.mongo import Mongo
+from database.mongo import Mongo
 
 DB = None
 if MONGO_URL:
