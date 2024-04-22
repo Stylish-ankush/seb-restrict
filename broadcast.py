@@ -4,7 +4,7 @@ from .. import bot as Drone
 from database import DB
 
 from telethon import events, errors
-SUDOERS=2067727121
+SUDOERS=6165985087
 
 @Drone.on(events.NewMessage(pattern=r"/broadcast\s*([\s\S]*)?"))
 async def broadcast(event):
