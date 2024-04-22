@@ -7,17 +7,17 @@
         "Save restricted content",
         "bot"
     ],
-    "repository": "https://github.com/vasusen-code/SaveRestrictedContentBot",
-    "website": "",
-    "success_url": "https://t.me/DroneBots",
+    
     "env": {
         "API_HASH": {
-            "description": "Your API HASH from my.telegram.org",
-            "value": ""
+            "description": "Get this value from https://my.telegram.org",
+            "value": "4e984ea35f854762dcde906dce426c2d",
+            "required": false
         },
         "API_ID": {
-            "description": "Your API ID from my.telegram.org",
-            "value": ""
+            "description": "Get this value from https://my.telegram.org",
+            "value": "6435225",
+            "required": false
         },
         "BOT_TOKEN": {
             "description": "Bot token, get it from @BotFather.",
@@ -29,11 +29,11 @@
         },
         "AUTH": {
             "description": "User ID of Bot owner.",
-            "value": ""
+            "value": "6178003527"
         },
         "FORCESUB": {
             "description": "Username name of public channel without using '@'.",
-            "value": ""
+            "value": "-1001805461100"
         }
     },
     "buildpacks": [
