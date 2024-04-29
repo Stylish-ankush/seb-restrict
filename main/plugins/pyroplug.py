@@ -22,8 +22,6 @@ def thumbnail(sender):
       
 async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
     
-    # Exit condition to prevent infinite recursion
-        
     """ userbot: PyrogramUserBot
     client: PyrogramBotClient
     bot: TelethonBotClient """
@@ -31,13 +29,13 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
     edit = ""
     chat = ""
     round_message = False
-if "?single" in msg_link:
-    msg_link = msg_link.split("?single")[0]
-msg_id = int(msg_link.split("/")[-1]) + int(i)
-height, width, duration, thumb_path = 90, 90, 0, None
-if 't.me/c/' or 't.me/b/' in msg_link:
-    if 't.me/b/' in msg_link:
-        chat = str(msg_link.split("/")[-2])
+    if "?single" in msg_link:
+        msg_link = msg_link.split("?single")[0]
+    msg_id = int(msg_link.split("/")[-1]) + int(i)
+    height, width, duration, thumb_path = 90, 90, 0, None
+    if 't.me/c/' or 't.me/b/' in msg_link:
+        if 't.me/b/' in msg_link:
+            chat = str(msg_link.split("/")[-2])
         else:
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
