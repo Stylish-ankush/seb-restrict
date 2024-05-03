@@ -1,41 +1,31 @@
-import asyncio
-import time
-import os
+#Github.com-Vasusen-code
+
+import asyncio, time, os
+
 from .. import bot as Drone
 from main.plugins.progress import progress_for_pyrogram
 from main.plugins.helpers import screenshot
+
 from pyrogram import Client, filters
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
-from pyrogram.types import MessageMediaType
-from telethon import events
+from pyrogram.enums import MessageMediaType
 from ethon.pyfunc import video_metadata
 from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from telethon import events
 
-user_chat_ids = {}
-
 def thumbnail(sender):
     if os.path.exists(f'{sender}.jpg'):
         return f'{sender}.jpg'
     else:
-        return None
-
-async def set_chat_id(client, event):
-    # Extract chat ID from the message
-    try:
-        chat_id = int(event.raw_text.split(" ", 1)[1])
-        # Store user's chat ID
-        user_chat_ids[event.sender_id] = chat_id
-        await event.reply("Chat ID set successfully!")
-    except ValueError:
-        await event.reply("Invalid chat ID!")
-
-@bot.on(events.NewMessage(incoming=True, pattern='/setchat'))
-async def set_chat_id_wrapper(event):
-    await set_chat_id(bot, event)
-
+         return None
+      
 async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
+    
+    """ userbot: PyrogramUserBot
+    client: PyrogramBotClient
+    bot: TelethonBotClient """
+    
     edit = ""
     chat = ""
     round_message = False
@@ -126,7 +116,7 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
                         time.time()
                     )
                 )
-
+            
             elif msg.media==MessageMediaType.PHOTO:
                 await edit.edit("Uploading photo.")
                 await bot.send_file(sender, file, caption=caption)
@@ -214,6 +204,7 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
             msg = await client.get_messages(chat, msg_id)
             if msg.empty:
                 new_link = f't.me/b/{chat}/{int(msg_id)}'
+                #recurrsion 
                 return await get_msg(userbot, client, bot, sender, edit_id, new_link, i)
             await client.copy_message(sender, chat, msg_id)
         except Exception as e:
