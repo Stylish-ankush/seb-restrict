@@ -153,7 +153,6 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
             try:
                 int(chat)
                 new_link = f"t.me/c/{chat}/{msg_id}"
-            try:
                 int(chat)
                 new_link = f"t.me/{chat}/{msg_id}"
             except:
