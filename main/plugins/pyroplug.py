@@ -3,7 +3,6 @@
 import asyncio, time, os
 
 from .. import bot as Drone
-from .. import userbot as app
 from main.plugins.progress import progress_for_pyrogram
 from main.plugins.helpers import screenshot
 
@@ -34,13 +33,11 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
         msg_link = msg_link.split("?single")[0]
     msg_id = int(msg_link.split("/")[-1]) + int(i)
     height, width, duration, thumb_path = 90, 90, 0, None
-    if 't.me/c/' or 't.me/' or 't.me/b/' in msg_link:
-        if 't.me/' in msg_link:
-            chat = str(msg_link.split("/")[-2])
+    if 't.me/c/' or 't.me/b/' in msg_link:
         if 't.me/b/' in msg_link:
             chat = str(msg_link.split("/")[-2])
         else:
-            chat = int(str(msg_link.split("/")[-2]))
+            chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
             msg = await userbot.get_messages(chat, msg_id)
@@ -153,8 +150,6 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
             try:
                 int(chat)
                 new_link = f"t.me/c/{chat}/{msg_id}"
-                int(chat)
-                new_link = f"t.me/{chat}/{msg_id}"
             except:
                 new_link = f"t.me/b/{chat}/{msg_id}"
             return await get_msg(userbot, client, bot, sender, edit_id, msg_link, i)
@@ -220,16 +215,3 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
 async def get_bulk_msg(userbot, client, sender, msg_link, i):
     x = await client.send_message(sender, "Processing!")
     await get_msg(userbot, client, Drone, sender, x.id, msg_link, i)
-
-@app.on_message(filters.me & filters.reply & filters.command("link", prefixes="."))
-async def handle_link_command(client, message):
-    try:
-        # Check if the replied message exists and is from a bot
-        msg_id = message.reply_to_message.id
-        chat_id = message.reply_to_message.from_user.username
-        await message.edit_text("Generating link...")
-        #await asyncio.sleep(0.1)
-        #await message.delete()
-        await message.edit_text(f"https://t.me/b/{chat_id}/{msg_id}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
