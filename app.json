@@ -14,12 +14,12 @@
         "API_HASH": {
             "description": "Your API HASH from my.telegram.org",
             "required": false,
-            "value": ""
+            "value": "4e984ea35f854762dcde906dce426c2d"
         },
         "API_ID": {
             "description": "Your API ID from my.telegram.org",
             "required": false,
-            "value": ""
+            "value": "6435225"
         },
         "BOT_TOKEN": {
             "description": "Bot token, get it from @BotFather.",
@@ -34,12 +34,12 @@
         "AUTH": {
             "description": "User ID of Bot owner.",
             "required": false,
-            "value": ""
+            "value": "6178003527"
         },
         "FORCESUB": {
             "description": "Username name of public channel without using '@'.",
             "required": false,
-            "value": ""
+            "value": "Insane_updates"
         }
     },
     "buildpacks": [
