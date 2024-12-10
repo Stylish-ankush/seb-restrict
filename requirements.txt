@@ -4,6 +4,6 @@ https://github.com/vasusen-code/Telethon/archive/refs/tags/v1.24.0.zip
 https://github.com/Stylish-ankush/ethon/archive/refs/heads/main.zip
 cryptg
 tgcrypto
-pyrogram
+pyrofork
 python-decouple
 telethon
