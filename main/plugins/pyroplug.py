@@ -5,7 +5,7 @@ import asyncio, time, os
 from .. import bot as Drone
 from main.plugins.progress import progress_for_pyrogram
 from main.plugins.helpers import screenshot
-
+# from pyrofork import MessageMediaWebPage
 from pyrogram import Client, filters
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
 from pyrogram.enums import MessageMediaType
@@ -21,7 +21,6 @@ def thumbnail(sender):
          return None
       
 async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
-    
     """ userbot: PyrogramUserBot
     client: PyrogramBotClient
     bot: TelethonBotClient """
@@ -33,16 +32,23 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
         msg_link = msg_link.split("?single")[0]
     msg_id = int(msg_link.split("/")[-1]) + int(i)
     height, width, duration, thumb_path = 90, 90, 0, None
-    if 't.me/c/' or 't.me/b/' in msg_link:
+    
+    if 't.me/c/' in msg_link or 't.me/b/' in msg_link:  # Corrected condition
         if 't.me/b/' in msg_link:
-            chat = str(msg_link.split("/")[-2])
+            chat = str(msg_link.split("/")[-2])  # Correct indentation here
         else:
-            chat = int('-100' + str(msg_link.split("/")[-2]))
+            chat_part = msg_link.split("/")[-2]
+            if chat_part.isdigit():
+                chat = int('-100' + chat_part)  # For numeric IDs
+            else:
+                chat = chat_part  # For usernames
+    # Further code continues...
+
         file = ""
         try:
             msg = await userbot.get_messages(chat, msg_id)
             if msg.media:
-                if msg.media==MessageMediaType.WEB_PAGE:
+                if hasattr(msg.media, 'webpage') and msg.media.webpage:
                     edit = await client.edit_message_text(sender, edit_id, "Cloning.")
                     await client.send_message(sender, msg.text.markdown)
                     await edit.delete()
