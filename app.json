@@ -34,7 +34,7 @@
             "required": false,
             "value": "6178003527"
         },
-        "Mongo Db": {
+        "MONGO_DB": {
             "description": "Yt me dekhke aa nhi ata to 😘",
             "required": false,
             "value": "mongodb+srv://grouphelp:grouphelp@grouphelp.ccgqorv.mongodb.net/?retryWrites=true&w=majority&appName=grouphelp"
