@@ -33,7 +33,7 @@
         },
         "Mongo Db": {
             "description": "Yt me dekhke aa nhi ata to 😘",
-            "value": ""
+            "value": "mongodb+srv://grouphelp:grouphelp@grouphelp.ccgqorv.mongodb.net/?retryWrites=true&w=majority&appName=grouphelp"
         },
         "FORCESUB": {
             "description": "Username name of public channel without using '@'.",
