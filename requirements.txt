@@ -7,3 +7,4 @@ tgcrypto
 pyrofork
 python-decouple
 telethon
+motor
