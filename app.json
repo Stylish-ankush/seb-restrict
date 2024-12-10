@@ -13,33 +13,31 @@
     "env": {
         "API_HASH": {
             "description": "Your API HASH from my.telegram.org",
-            "required": false,
-            "value": "4e984ea35f854762dcde906dce426c2d"
+            "value": ""
         },
         "API_ID": {
             "description": "Your API ID from my.telegram.org",
-            "required": false,
-            "value": "6435225"
+            "value": ""
         },
         "BOT_TOKEN": {
             "description": "Bot token, get it from @BotFather.",
-            "required": false,
             "value": ""
         },
         "SESSION": {
             "description": "Pyrogram string session.",
-            "required": false,
             "value": ""
         },
         "AUTH": {
             "description": "User ID of Bot owner.",
-            "required": false,
-            "value": "6178003527"
+            "value": ""
+        },
+        "Mongo Db": {
+            "description": "Yt me dekhke aa nhi ata to 😘",
+            "value": ""
         },
         "FORCESUB": {
             "description": "Username name of public channel without using '@'.",
-            "required": false,
-            "value": "Insane_updates"
+            "value": ""
         }
     },
     "buildpacks": [
