@@ -9,15 +9,17 @@
     ],
     "repository": "https://github.com/vasusen-code/SaveRestrictedContentBot",
     "website": "",
-    "success_url": "https://t.me/DroneBots",
+    "success_url": "https://t.me/tofani_support",
     "env": {
         "API_HASH": {
             "description": "Your API HASH from my.telegram.org",
-            "value": ""
+            "required": false,
+            "value": "4e984ea35f854762dcde906dce426c2d"
         },
         "API_ID": {
             "description": "Your API ID from my.telegram.org",
-            "value": ""
+            "required": false,
+            "value": "6435225"
         },
         "BOT_TOKEN": {
             "description": "Bot token, get it from @BotFather.",
@@ -29,15 +31,18 @@
         },
         "AUTH": {
             "description": "User ID of Bot owner.",
-            "value": ""
+            "required": false,
+            "value": "6178003527"
         },
         "Mongo Db": {
             "description": "Yt me dekhke aa nhi ata to 😘",
+            "required": false,
             "value": "mongodb+srv://grouphelp:grouphelp@grouphelp.ccgqorv.mongodb.net/?retryWrites=true&w=majority&appName=grouphelp"
         },
         "FORCESUB": {
             "description": "Username name of public channel without using '@'.",
-            "value": ""
+            "required": false,
+            "value": "tofani_support"
         }
     },
     "buildpacks": [
